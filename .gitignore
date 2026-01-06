@@ -1,0 +1,12 @@
+# Binaries
+*.exe
+*.out
+
+# PDF générés
+*.pdf
+
+# Mac
+.DS_Store
+
+# Go
+/go.sum
