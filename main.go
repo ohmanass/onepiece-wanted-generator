@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	fmt.Println("test")
 	pirates, err := ParseCSV("Pirates.csv")
 	if err != nil {
 		fmt.Println("Erreur :", err)

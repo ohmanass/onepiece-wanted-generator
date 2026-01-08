@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pirate_generator
+    volumes:
+      - ./output:/app/output
+    command: ["./generator", "-file", "-path", "Pirates.csv"]

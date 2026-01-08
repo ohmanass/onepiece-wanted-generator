@@ -21,7 +21,7 @@ func NewPdf(outputDir string) (*PdfSaver, error) {
 	if _, err := os.Stat(outputDir); os.IsNotExist(err) {
 		return nil,fmt.Errorf("Le repertoire %s est inexistant !", outputDir)
 	}
-	// creation pdf
+	// pdf creation
 	return &PdfSaver{OutputDir: outputDir}, nil
 }
 
@@ -56,5 +56,6 @@ func (p *PdfSaver) Save(pir Pirate) error {
 	pdf.WriteAligned(0, 20, "PRIME : "+pir.Prime+" BERRYS", "C")
 
 	filename := fmt.Sprintf("%s/%s_WANTED.pdf", p.OutputDir, pir.Name)
+	fmt.Println("PDF généré :", filename)
 	return pdf.OutputFileAndClose(filename)
 }

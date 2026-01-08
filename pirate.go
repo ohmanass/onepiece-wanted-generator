@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"strings"
+	"pdf"
 )
 
 type Pirate struct {
@@ -13,7 +14,7 @@ type Pirate struct {
 
 func New(name, prime, img string) (*Pirate, error) {
 	
-	// Gestion des erreures
+	// Errors handling
 	if name == "" {
 		return nil, errors.New("le nom du pirate est vide")
 	}
@@ -30,11 +31,14 @@ func New(name, prime, img string) (*Pirate, error) {
 		return nil, errors.New("le chemin de l image est vide")
 	}
 
-	// Creation de notre pirate
+	// Pirate creation
 	p := &Pirate{
 		Name:  name,
 		Prime: prime,
 		Img:   img,
 	}
+	
+	pdf.Save(p)
+
 	return p, nil
 }
